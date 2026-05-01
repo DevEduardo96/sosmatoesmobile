@@ -11,15 +11,14 @@
     
     <style>
         :root {
-            /* Cores extraídas da logo e banners */
-            --bg-color: #050505; /* Fundo preto texturizado dos banners */
+            --bg-color: #050505; 
             --card-bg: #111111;
-            --accent-color: #e25c5c; /* Vermelho/Coral da logo */
+            --accent-color: #e25c5c; 
             --accent-dim: #b84a4a;
             --text-color: #e0e0e0;
             --text-dim: #a0a0a0;
             --glass: rgba(255, 255, 255, 0.05);
-            --success-green: #25D366; /* Cor oficial do WhatsApp */
+            --success-green: #25D366; 
         }
 
         * {
@@ -27,7 +26,7 @@
             padding: 0;
             box-sizing: border-box;
             transition: all 0.3s ease;
-            scroll-behavior: smooth; /* Rolagem suave para o menu */
+            scroll-behavior: smooth; 
         }
 
         body {
@@ -35,7 +34,6 @@
             color: var(--text-color);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            /* Adicionando a textura de circuito sutil ao fundo de todo o site */
             background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M10 10 L90 10 L90 90 L10 90 Z" stroke="%231a1a1a" stroke-width="0.5" fill="none"/%3E%3Cpath d="M30 10 L30 30 L10 30" stroke="%231a1a1a" stroke-width="0.5" fill="none"/%3E%3Cpath d="M70 10 L70 30 L90 30" stroke="%231a1a1a" stroke-width="0.5" fill="none"/%3E%3Cpath d="M30 90 L30 70 L10 70" stroke="%231a1a1a" stroke-width="0.5" fill="none"/%3E%3Cpath d="M70 90 L70 70 L90 70" stroke="%231a1a1a" stroke-width="0.5" fill="none"/%3E%3C/svg%3E');
         }
 
@@ -50,7 +48,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--accent-color); /* Linha sutil na cor da logo */
+            border-bottom: 1px solid var(--accent-color); 
         }
 
         .logo-container {
@@ -58,6 +56,7 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .logo-icon {
@@ -93,9 +92,9 @@
             letter-spacing: 1px;
             padding: 5px 0;
             position: relative;
+            cursor: pointer;
         }
 
-        /* Efeito de hover no menu */
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -107,17 +106,12 @@
             transition: width 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #fff;
-        }
+        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover::after { width: 100%; }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* --- HERO BANNER (Estilizado como os banners fornecidos) --- */
+        /* --- HERO BANNER --- */
         .hero {
-            height: 80vh; /* Mais alto para parecer um banner de destaque */
+            height: 80vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -130,7 +124,6 @@
             background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
         }
 
-        /* Adicionando a textura de circuito apenas no hero para destaque, como nos banners */
         .hero::before {
             content: '';
             position: absolute;
@@ -149,58 +142,13 @@
             gap: 15px;
         }
 
-        .hero-logo-main {
-            color: var(--accent-color);
-            font-size: 4rem;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 0 15px rgba(226, 92, 92, 0.5));
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            line-height: 1.1;
-            color: #fff;
-            text-transform: uppercase;
-        }
-
-        .hero h1 span {
-            color: var(--accent-color);
-        }
-
-        .hero p.main-promo {
-            font-size: 1.4rem;
-            color: #fff;
-            font-weight: 600;
-            margin-top: 10px;
-        }
-
-        .hero p.sub-text {
-            font-size: 1rem;
-            color: var(--text-dim);
-            max-width: 600px;
-            margin-bottom: 20px;
-        }
-
-        .hero-badges {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .badge {
-            background: rgba(226, 92, 92, 0.1);
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .hero-logo-main { color: var(--accent-color); font-size: 4rem; margin-bottom: 10px; filter: drop-shadow(0 0 15px rgba(226, 92, 92, 0.5)); }
+        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 3rem; line-height: 1.1; color: #fff; text-transform: uppercase; }
+        .hero h1 span { color: var(--accent-color); }
+        .hero p.main-promo { font-size: 1.4rem; color: #fff; font-weight: 600; margin-top: 10px; }
+        .hero p.sub-text { font-size: 1rem; color: var(--text-dim); max-width: 600px; margin-bottom: 20px; }
+        .hero-badges { display: flex; gap: 15px; margin-top: 20px; }
+        .badge { background: rgba(226, 92, 92, 0.1); border: 1px solid var(--accent-color); color: var(--accent-color); padding: 8px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
 
         /* --- SEARCH SECTION --- */
         .search-container {
@@ -212,20 +160,9 @@
             border-bottom: 1px solid var(--glass);
         }
 
-        .search-container h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .search-box {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        #search-input {
+        .search-container h2 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; margin-bottom: 20px; color: #fff; }
+        .search-box { position: relative; width: 100%; max-width: 600px; }
+        .search-box input {
             width: 100%;
             padding: 18px 25px 18px 60px;
             background: var(--card-bg);
@@ -236,205 +173,51 @@
             outline: none;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
-        #search-input:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 15px rgba(226, 92, 92, 0.2);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--accent-color);
-            font-size: 1.2rem;
-        }
+        .search-box input:focus { border-color: var(--accent-color); box-shadow: 0 0 15px rgba(226, 92, 92, 0.2); }
+        .search-icon { position: absolute; left: 25px; top: 50%; transform: translateY(-50%); color: var(--accent-color); font-size: 1.2rem; }
 
         /* --- CONTENT SECTION --- */
-        .content-section {
-            padding: 60px 5% 100px;
-        }
+        .content-section { padding: 60px 5% 100px; min-height: 70vh; }
+        .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; }
+        .section-header h2 { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #fff; }
+        .line { flex-grow: 1; height: 2px; background: linear-gradient(to right, var(--accent-color), transparent); }
 
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
+        .grid-arquivos { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--card-bg); border: 1px solid #222; padding: 30px; border-radius: 15px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent-color); transform: scaleX(0); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: #444; box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+        .card:hover::before { transform: scaleX(1); }
+        .card-tag { font-size: 0.7rem; text-transform: uppercase; background: rgba(226, 92, 92, 0.1); color: var(--accent-color); padding: 5px 12px; border-radius: 4px; font-weight: 700; display: inline-block; margin-bottom: 15px; align-self: flex-start; }
+        .card h3 { margin-bottom: 10px; font-size: 1.3rem; color: #fff; }
+        .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5; }
+        
+        .btn-card { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); text-decoration: none; font-size: 0.85rem; font-weight: 700; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; width: 100%; cursor: pointer; }
+        .btn-card:hover { background: var(--accent-color); color: #fff; box-shadow: 0 5px 15px rgba(226, 92, 92, 0.3); }
 
-        .section-header h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            color: #fff;
-        }
-
-        .line {
-            flex-grow: 1;
-            height: 2px;
-            background: linear-gradient(to right, var(--accent-color), transparent);
-        }
-
-        .grid-arquivos {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #222;
-            padding: 30px;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-            background: var(--accent-color);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #444;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-        }
-
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card-tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            background: rgba(226, 92, 92, 0.1);
-            color: var(--accent-color);
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 15px;
-            align-self: flex-start;
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-            color: #fff;
-        }
-
-        .card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        .btn-card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 12px 20px;
-            background: transparent;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            width: 100%;
-        }
-
-        .btn-card:hover {
-            background: var(--accent-color);
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(226, 92, 92, 0.3);
-        }
-
-        /* --- FOOTER (Info dos banners) --- */
-        footer {
-            background: #0a0a0a;
-            padding: 60px 5% 30px;
-            border-top: 1px solid var(--glass);
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
+        /* --- FOOTER --- */
+        footer { background: #0a0a0a; padding: 60px 5% 30px; border-top: 1px solid var(--glass); color: var(--text-dim); font-size: 0.9rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
         .footer-logo .logo-text { font-size: 1.5rem; }
         .footer-logo p { margin-top: 10px; font-size: 0.9rem; }
-
         .footer-info h4 { color: #fff; margin-bottom: 15px; text-transform: uppercase; font-size: 1rem; }
         .footer-info ul { list-style: none; }
         .footer-info ul li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .footer-info i { color: var(--accent-color); width: 20px; text-align: center; }
         .footer-info a { color: var(--text-dim); text-decoration: none; }
         .footer-info a:hover { color: var(--accent-color); }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid var(--glass);
-            font-size: 0.8rem;
-        }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid var(--glass); font-size: 0.8rem; }
 
         /* --- WHATSAPP FLOATING BUTTON --- */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--success-green);
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1) rotate(5deg);
-            background-color: #20ba5a;
-        }
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: var(--success-green); color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0px 5px 15px rgba(0,0,0,0.3); z-index: 100; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(5deg); background-color: #20ba5a; }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero-logo-main { font-size: 3rem; }
-        }
-
+        @media (max-width: 992px) { .hero h1 { font-size: 2.5rem; } .hero-logo-main { font-size: 3rem; } }
         @media (max-width: 768px) {
-            nav { padding: 1rem 20px; }
-            .nav-links { display: none; } /* Menu hamburguer precisaria de JS extra, mantendo simples */
-            .hero { height: auto; padding: 100px 20px; }
-            .hero h1 { font-size: 2rem; }
-            .hero p.main-promo { font-size: 1.1rem; }
-            .hero-badges { flex-direction: column; align-items: center; gap: 10px; }
-            .section-header h2 { font-size: 1.5rem; }
-            .grid-arquivos { grid-template-columns: 1fr; }
+            nav { padding: 1rem 20px; } .nav-links { display: none; }
+            .hero { height: auto; padding: 100px 20px; } .hero h1 { font-size: 2rem; }
+            .hero p.main-promo { font-size: 1.1rem; } .hero-badges { flex-direction: column; align-items: center; gap: 10px; }
+            .section-header h2 { font-size: 1.5rem; } .grid-arquivos { grid-template-columns: 1fr; }
             .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
         }
     </style>
@@ -443,25 +226,25 @@
 
     <!-- Menu de Navegação -->
     <nav>
-        <a href="#" class="logo-container">
+        <a onclick="voltarParaHome()" class="logo-container">
             <i class="fa-solid fa-microchip logo-icon"></i>
             <div class="logo-text">S.O.S <span>Matões</span> Mobile</div>
         </a>
         <ul class="nav-links">
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#arquivos">Arquivos</a></li>
+            <li><a onclick="voltarParaHome()">Início</a></li>
+            <li><a onclick="voltarParaHome()">Serviços</a></li>
+            <li><a onclick="voltarParaHome()">Arquivos</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
-        <div style="color: var(--accent-color); font-size: 1.2rem; cursor: pointer;" onclick="document.getElementById('search-input').focus()">
+        <div style="color: var(--accent-color); font-size: 1.2rem; cursor: pointer;" onclick="focarBuscaPrincipal()">
             <i class="fa-solid fa-search"></i>
         </div>
     </nav>
 
-    <!-- Banner Hero Principal (Baseado no Design dos Banners) -->
+    <!-- Banner Hero Principal -->
     <header class="hero" id="inicio">
         <div class="hero-content">
-            <i class="fa-solid fa-microchip hero-logo-main"></i> <!-- Ícone que remete à logo G7 -->
+            <i class="fa-solid fa-microchip hero-logo-main"></i>
             <h1>Sua tela <span>quebrou?</span></h1>
             <p class="main-promo">Trocamos sua tela, conector e bateria!</p>
             <p class="sub-text">A maior biblioteca de firmwares, esquemas elétricos e ferramentas de reparo avançado, aliada à melhor assistência técnica da região.</p>
@@ -473,12 +256,12 @@
         </div>
     </header>
 
-    <!-- Seção de Busca -->
+    <!-- Seção de Busca Principal -->
     <section class="search-container" id="arquivos">
-        <h2>Área de Downloads</h2>
+        <h2>Área de Downloads e Serviços</h2>
         <div class="search-box">
             <i class="fa-solid fa-search search-icon"></i>
-            <input type="text" id="search-input" placeholder="Procure por ROMs, Esquemas, Ferramentas (Ex: S21, iPhone 12, Odin)...">
+            <input type="text" id="search-input" placeholder="Procure por Serviços, ROMs, Esquemas (Ex: Tela, iPhone 12)...">
         </div>
     </section>
 
@@ -494,11 +277,46 @@
         </div>
     </main>
 
-    <!-- Rodapé com Informações dos Banners -->
+    <!-- NOVA SEÇÃO: Tabela de Preços (Inicialmente Oculta) -->
+    <section class="content-section" id="secao-precos" style="display: none;">
+        <div class="section-header">
+            <button onclick="voltarParaHome()" style="background:none; border:none; color:var(--accent-color); cursor:pointer; font-size:1.2rem; margin-right:15px; display:flex; align-items:center; gap:5px; font-weight: 600;">
+                <i class="fa-solid fa-arrow-left"></i> Voltar
+            </button>
+            <h2>Tabela de <span>Preços</span></h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="search-box" style="margin: 0 auto 30px; max-width: 600px;">
+            <i class="fa-solid fa-search search-icon" style="left: 20px;"></i>
+            <input type="text" id="search-precos" placeholder="Busque o modelo do seu aparelho (Ex: iPhone 11)..." style="padding-left: 50px;">
+        </div>
+
+        <div style="overflow-x: auto; background: var(--card-bg); border-radius: 15px; border: 1px solid #222;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                    <tr style="background: rgba(226, 92, 92, 0.1);">
+                        <th style="padding: 20px; font-family: 'Orbitron'; color: var(--accent-color); font-size: 0.8rem; border-bottom: 2px solid #222;">APARELHO</th>
+                        <th style="padding: 20px; font-family: 'Orbitron'; color: var(--accent-color); font-size: 0.8rem; border-bottom: 2px solid #222;">QUALIDADE</th>
+                        <th style="padding: 20px; font-family: 'Orbitron'; color: var(--accent-color); font-size: 0.8rem; border-bottom: 2px solid #222;">VALOR ESTIMADO</th>
+                        <th style="padding: 20px; font-family: 'Orbitron'; color: var(--accent-color); font-size: 0.8rem; border-bottom: 2px solid #222;">AÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela-precos">
+                    <!-- Preenchido via JS -->
+                </tbody>
+            </table>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-dim); text-align: center;">
+            * Valores podem variar conforme a disponibilidade das peças e a cotação do fornecedor.
+        </p>
+    </section>
+
+    <!-- Rodapé -->
     <footer id="contato">
         <div class="footer-content">
             <div class="footer-logo">
-                <a href="#" class="logo-container">
+                <a onclick="voltarParaHome()" class="logo-container">
                     <i class="fa-solid fa-microchip logo-icon"></i>
                     <div class="logo-text">S.O.S <span>Matões</span> Mobile</div>
                 </a>
@@ -527,15 +345,14 @@
     </footer>
 
     <!-- Botão Flutuante do WhatsApp -->
-    <!-- Substitua o número 5586999461236 pelo número correto se necessário -->
     <a href="https://wa.me/5586999461236?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento." class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <script>
-        // BANCO DE DADOS (Simulado - Mantendo os dados originais + novos focados em serviço)
+        // BANCO DE DADOS DA HOME
         const arquivos = [
-            { id: 1, nome: "Troca de Tela Premium", categoria: "Serviço", desc: "Instalação profissional com película de brinde para evitar futuros acidentes.", tipoBtn: "Orçamento" },
+            { id: 1, nome: "Troca de Tela Premium", categoria: "Serviço", desc: "Instalação profissional com película de brinde para evitar futuros acidentes.", tipoBtn: "Ver Preços" },
             { id: 2, nome: "Reparo de Conector & Bateria", categoria: "Serviço", desc: "Seu celular não carrega ou vicia rápido? Resolvemos na hora com técnicos no local.", tipoBtn: "Orçamento" },
             { id: 3, nome: "Samsung Galaxy S21 Ultra", categoria: "ROM", desc: "Firmware Stock Android 13 - Região ZTO (Brasil). Oficial.", tipoBtn: "Download" },
             { id: 4, nome: "iPhone 12 Pro Max", categoria: "Esquema", desc: "Diagrama Elétrico Completo e Boardview detalhado para reparos em placa.", tipoBtn: "Download" },
@@ -544,12 +361,21 @@
             { id: 7, nome: "Xiaomi Poco X3 Pro", categoria: "Esquema", desc: "Manual de Serviço e Guia de Reparo de Falhas Comuns (PMIC/CPU).", tipoBtn: "Download" },
         ];
 
+        // BANCO DE DADOS DA TABELA DE PREÇOS
+        const precosData = [
+            { modelo: "iPhone 11", qualidade: "Incell Premium", preco: "R$ 450,00" },
+            { modelo: "iPhone XR", qualidade: "Incell Premium", preco: "R$ 420,00" },
+            { modelo: "Samsung Galaxy A32", qualidade: "OLED", preco: "R$ 380,00" },
+            { modelo: "Samsung Galaxy J5 Prime", qualidade: "Original Nac.", preco: "R$ 180,00" },
+            { modelo: "Motorola Moto G60", qualidade: "Original China", preco: "R$ 350,00" },
+            { modelo: "Xiaomi Poco X3 Pro", qualidade: "Original", preco: "R$ 420,00" },
+        ];
+
         const grid = document.getElementById('grid-arquivos');
         const searchInput = document.getElementById('search-input');
-
-        // Link padrão do WhatsApp para orçamentos
         const linkWhatsapp = "https://wa.me/5586999461236?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20";
 
+        // RENDERIZA OS CARDS DA TELA INICIAL
         function renderizar(lista) {
             grid.innerHTML = "";
             
@@ -559,16 +385,27 @@
             }
 
             lista.forEach(item => {
-                // Define o ícone e o link baseado no tipo de botão
-                let iconeBtn, textoBtn, linkBtn;
-                if (item.tipoBtn === "Orçamento") {
+                let iconeBtn, textoBtn, linkBtn, targetAttr, onclickAttr;
+
+                // Lógica de roteamento dos botões (Sem abrir nova aba para links internos)
+                if (item.tipoBtn === "Ver Preços" || item.nome.toLowerCase().includes("troca de tela")) {
+                    iconeBtn = "fa-solid fa-list";
+                    textoBtn = "Ver Preços";
+                    linkBtn = "javascript:void(0)";
+                    targetAttr = "";
+                    onclickAttr = `onclick="abrirTabelaPrecos()"`;
+                } else if (item.tipoBtn === "Orçamento") {
                     iconeBtn = "fa-brands fa-whatsapp";
                     textoBtn = "Fazer Orçamento";
-                    linkBtn = linkBtn = "precos.html";
+                    linkBtn = linkWhatsapp + encodeURIComponent(item.nome);
+                    targetAttr = `target="_blank"`; // Apenas o zap abre em nova aba
+                    onclickAttr = "";
                 } else {
                     iconeBtn = "fa-solid fa-download";
                     textoBtn = "Download";
-                    linkBtn = "#"; // Mantendo padrão do exemplo
+                    linkBtn = "#"; 
+                    targetAttr = "";
+                    onclickAttr = "";
                 }
 
                 const card = `
@@ -578,7 +415,7 @@
                             <h3>${item.nome}</h3>
                             <p>${item.desc}</p>
                         </div>
-                        <a href="${linkBtn}" class="btn-card" ${item.tipoBtn === "Orçamento" ? 'target="_blank"' : ''}>
+                        <a href="${linkBtn}" class="btn-card" ${targetAttr} ${onclickAttr}>
                             <i class="${iconeBtn}"></i> ${textoBtn}
                         </a>
                     </div>
@@ -587,7 +424,66 @@
             });
         }
 
-        // Lógica de busca
+        // LÓGICA DE NAVEGAÇÃO SPA (Single Page Application)
+        function abrirTabelaPrecos() {
+            // Esconde os elementos principais
+            document.getElementById('inicio').style.display = 'none';
+            document.getElementById('arquivos').style.display = 'none';
+            document.getElementById('servicos').style.display = 'none';
+            
+            // Mostra a seção de preços
+            document.getElementById('secao-precos').style.display = 'block';
+            
+            // Limpa o input de busca da tabela e renderiza ela inteira
+            document.getElementById('search-precos').value = "";
+            renderizarTabelaDePrecos();
+            
+            window.scrollTo(0, 0); // Joga a tela para cima
+        }
+
+        function voltarParaHome() {
+            // Esconde a seção de preços
+            document.getElementById('secao-precos').style.display = 'none';
+            
+            // Restaura os elementos principais
+            document.getElementById('inicio').style.display = 'flex';
+            document.getElementById('arquivos').style.display = 'flex';
+            document.getElementById('servicos').style.display = 'block';
+            
+            window.scrollTo(0, 0);
+        }
+
+        function focarBuscaPrincipal() {
+            voltarParaHome();
+            document.getElementById('search-input').focus();
+        }
+
+        // RENDERIZA A TABELA DE PREÇOS
+        function renderizarTabelaDePrecos(filtro = "") {
+            const corpoTabela = document.getElementById('corpo-tabela-precos');
+            const filtrados = precosData.filter(p => p.modelo.toLowerCase().includes(filtro.toLowerCase()));
+            
+            if(filtrados.length === 0) {
+                corpoTabela.innerHTML = `<tr><td colspan="4" style="text-align:center; padding: 40px; color: var(--text-dim);">Modelo não encontrado. Consulte-nos via WhatsApp.</td></tr>`;
+                return;
+            }
+
+            corpoTabela.innerHTML = filtrados.map(item => `
+                <tr style="border-bottom: 1px solid #1a1a1a; transition: background 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.02)'" onmouseout="this.style.background='transparent'">
+                    <td style="padding: 18px 20px; font-weight: 600; color: #fff;">${item.modelo}</td>
+                    <td style="padding: 18px 20px; color: var(--text-dim); font-size: 0.9rem;">${item.qualidade}</td>
+                    <td style="padding: 18px 20px;"><span style="background: rgba(226, 92, 92, 0.2); color: #fff; font-weight: 700; padding: 6px 12px; border-radius: 6px;">${item.preco}</span></td>
+                    <td style="padding: 18px 20px;">
+                        <a href="https://wa.me/5586999461236?text=Olá!%20Quero%20agendar%20a%20troca%20da%20tela%20do%20${encodeURIComponent(item.modelo)}" target="_blank"
+                           style="color: var(--accent-color); border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; display: inline-block;">
+                           AGENDAR
+                        </a>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // EVENTOS DE BUSCA
         searchInput.addEventListener('input', (e) => {
             const termo = e.target.value.toLowerCase();
             const filtrados = arquivos.filter(arq => 
@@ -596,6 +492,10 @@
                 arq.desc.toLowerCase().includes(termo)
             );
             renderizar(filtrados);
+        });
+
+        document.getElementById('search-precos').addEventListener('input', (e) => {
+            renderizarTabelaDePrecos(e.target.value);
         });
 
         // Inicializar o site
