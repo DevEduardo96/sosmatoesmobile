@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Preços | S.O.S Matões Mobile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #111111;
+            --accent-color: #e25c5c;
+            --text-color: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M10 10 L90 10 L90 90 L10 90 Z" stroke="%231a1a1a" stroke-width="0.5" fill="none"/%3E%3C/svg%3E');
+        }
+
+        nav {
+            padding: 1.5rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .btn-voltar {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-voltar:hover { color: var(--accent-color); }
+
+        .container { padding: 40px 5%; max-width: 1000px; margin: 0 auto; }
+
+        header { text-align: center; margin-bottom: 50px; }
+        header h1 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 10px; }
+        header span { color: var(--accent-color); }
+
+        /* Barra de Busca */
+        .search-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        #search-device {
+            width: 100%;
+            padding: 18px 25px 18px 60px;
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        #search-device:focus { border-color: var(--accent-color); box-shadow: 0 0 15px rgba(226, 92, 92, 0.2); }
+
+        .search-icon { position: absolute; left: 25px; top: 50%; transform: translateY(-50%); color: var(--accent-color); }
+
+        /* Tabela Estilizada */
+        .table-wrapper {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead { background: rgba(226, 92, 92, 0.1); }
+        th {
+            padding: 20px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid #222;
+        }
+
+        td { padding: 18px 20px; border-bottom: 1px solid #1a1a1a; }
+        tr:hover { background: rgba(255, 255, 255, 0.02); }
+
+        .price-tag {
+            font-weight: 700;
+            color: #fff;
+            background: rgba(226, 92, 92, 0.2);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .btn-confirmar {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        .btn-confirmar:hover { background: var(--accent-color); color: #fff; }
+
+        @media (max-width: 600px) {
+            th:nth-child(3), td:nth-child(3) { display: none; } /* Esconde qualidade em telas pequenas */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="btn-voltar">
+            <i class="fa-solid fa-arrow-left"></i> Voltar ao Início
+        </a>
+        <div style="font-family: 'Orbitron'; font-weight: 700;">S.O.S <span>MATÕES</span></div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Tabela de <span>Preços</span></h1>
+            <p style="color: var(--text-dim);">Consulte o valor estimado para a troca da sua tela.</p>
+        </header>
+
+        <div class="search-container">
+            <i class="fa-solid fa-search search-icon"></i>
+            <input type="text" id="search-device" placeholder="Digite o modelo (Ex: iPhone 11, Moto G60, A32)...">
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aparelho</th>
+                        <th>Valor Estimado</th>
+                        <th>Qualidade</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="price-table-body">
+                    <!-- Gerado via JS -->
+                </tbody>
+            </table>
+        </div>
+        
+        <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-dim); text-align: center;">
+            * Valores podem variar conforme a disponibilidade das peças e a cotação do fornecedor.
+        </p>
+    </div>
+
+    <script>
+        // BANCO DE DADOS DE PREÇOS (Exemplos)
+        const precos = [
+            { modelo: "iPhone 11", preco: "R$ 450,00", qualidade: "Incell Premium" },
+            { modelo: "iPhone XR", preco: "R$ 420,00", qualidade: "Incell Premium" },
+            { modelo: "Samsung Galaxy A32", preco: "R$ 380,00", qualidade: "OLED" },
+            { modelo: "Samsung Galaxy J5 Prime", preco: "R$ 180,00", qualidade: "Original Nac." },
+            { modelo: "Motorola Moto G60", preco: "R$ 350,00", qualidade: "Original China" },
+            { modelo: "Motorola Moto G9 Play", preco: "R$ 280,00", qualidade: "Original Nac." },
+            { modelo: "Xiaomi Redmi Note 10", preco: "R$ 400,00", qualidade: "OLED" },
+            { modelo: "Xiaomi Poco X3 Pro", preco: "R$ 420,00", qualidade: "Original" },
+        ];
+
+        const tableBody = document.getElementById('price-table-body');
+        const searchInput = document.getElementById('search-device');
+
+        function renderTable(dados) {
+            tableBody.innerHTML = "";
+            if(dados.length === 0) {
+                tableBody.innerHTML = "<tr><td colspan='4' style='text-align:center; padding: 30px;'>Modelo não encontrado. Entre em contato para orçamento manual.</td></tr>";
+                return;
+            }
+
+            dados.forEach(item => {
+                const row = `
+                    <tr>
+                        <td style="font-weight: 600;">${item.modelo}</td>
+                        <td><span class="price-tag">${item.preco}</span></td>
+                        <td style="color: var(--text-dim); font-size: 0.9rem;">${item.qualidade}</td>
+                        <td><a href="https://wa.me/5586999461236?text=Quero%20agendar%20a%20troca%20da%20tela%20do%20${encodeURIComponent(item.modelo)}" class="btn-confirmar">Agendar</a></td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const termo = e.target.value.toLowerCase();
+            const filtrados = precos.filter(p => p.modelo.toLowerCase().includes(termo));
+            renderTable(filtrados);
+        });
+
+        // Inicializa a tabela
+        renderTable(precos);
+    </script>
+</body>
+</html>
