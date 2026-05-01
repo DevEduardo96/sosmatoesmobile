@@ -230,11 +230,11 @@
             <i class="fa-solid fa-microchip logo-icon"></i>
             <div class="logo-text">S.O.S <span>Matões</span> Mobile</div>
         </a>
-        <ul class="nav-links">
-            <li><a onclick="voltarParaHome()">Início</a></li>
-            <li><a onclick="voltarParaHome()">Serviços</a></li>
-            <li><a onclick="voltarParaHome()">Arquivos</a></li>
-            <li><a href="#contato">Contato</a></li>
+       <ul class="nav-links">
+            <li><a onclick="navegarPara('inicio')">Início</a></li>
+            <li><a onclick="navegarPara('servicos')">Serviços</a></li>
+            <li><a onclick="navegarPara('servicos')">Downloads</a></li>
+            <li><a onclick="navegarPara('contato')">Contato</a></li>
         </ul>
         <div style="color: var(--accent-color); font-size: 1.2rem; cursor: pointer;" onclick="focarBuscaPrincipal()">
             <i class="fa-solid fa-search"></i>
@@ -456,6 +456,24 @@
         function focarBuscaPrincipal() {
             voltarParaHome();
             document.getElementById('search-input').focus();
+        }
+// NOVA FUNÇÃO DE NAVEGAÇÃO DO MENU
+        function navegarPara(secaoId) {
+            // 1. Esconde a seção de preços (caso o usuário esteja lá dentro)
+            document.getElementById('secao-precos').style.display = 'none';
+            
+            // 2. Garante que as seções principais da página estejam visíveis
+            document.getElementById('inicio').style.display = 'flex';
+            document.getElementById('arquivos').style.display = 'flex';
+            document.getElementById('servicos').style.display = 'block';
+            
+            // 3. Faz a rolagem suave até a parte exata do site que foi clicada
+            setTimeout(() => {
+                const secao = document.getElementById(secaoId);
+                if(secao) {
+                    secao.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 50); // Um pequeno atraso de 50ms apenas para garantir que a tela renderizou antes de rolar
         }
 
         // RENDERIZA A TABELA DE PREÇOS
