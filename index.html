@@ -189,9 +189,20 @@
         .card:hover::before { transform: scaleX(1); }
         .card-tag { font-size: 0.7rem; text-transform: uppercase; background: rgba(226, 92, 92, 0.1); color: var(--accent-color); padding: 5px 12px; border-radius: 4px; font-weight: 700; display: inline-block; margin-bottom: 15px; align-self: flex-start; }
         .card h3 { margin-bottom: 10px; font-size: 1.3rem; color: #fff; }
-        .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5; }
         
-        .btn-card { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); text-decoration: none; font-size: 0.85rem; font-weight: 700; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; width: 100%; cursor: pointer; }
+        /* Novas regras para imagem no card */
+        .card-image {
+            width: 100%;
+            height: 180px; /* Altura fixa para manter padrão */
+            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #222;
+        }
+
+        .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5; flex-grow: 1; /* Faz o texto ocupar o espaço restante */ }
+        
+        .btn-card { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); text-decoration: none; font-size: 0.85rem; font-weight: 700; border-radius: 50px; text-transform: uppercase; letter-spacing: 1px; width: 100%; cursor: pointer; margin-top: auto; /* Empurra o botão para o final do card */ }
         .btn-card:hover { background: var(--accent-color); color: #fff; box-shadow: 0 5px 15px rgba(226, 92, 92, 0.3); }
 
         /* --- FOOTER --- */
@@ -219,6 +230,7 @@
             .hero p.main-promo { font-size: 1.1rem; } .hero-badges { flex-direction: column; align-items: center; gap: 10px; }
             .section-header h2 { font-size: 1.5rem; } .grid-arquivos { grid-template-columns: 1fr; }
             .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
+            .card-image { height: 200px; }
         }
     </style>
 </head>
@@ -350,30 +362,12 @@
     </a>
 
     <script>
-        // BANCO DE DADOS DA HOME
+        // BANCO DE DADOS DA HOME - Adicionado propriedade 'imagem'
+        // Substitua os nomes dos arquivos (ex: tela.jpg) pelos links reais das suas imagens
         const arquivos = [
-            { id: 1, nome: "Troca de Tela Premium", categoria: "Serviço", desc: "Instalação profissional com película de brinde para evitar futuros acidentes.", tipoBtn: "Ver Preços" },
-            { id: 2, nome: "Reparo de Conector & Bateria", categoria: "Serviço", desc: "Seu celular não carrega ou vicia rápido? Resolvemos na hora com técnicos no local.", tipoBtn: "Orçamento" },
-            { id: 3, nome: "Limpeza e Remoção de Vírus", categoria: "Serviço", desc: "Seu aparelho está lento ou com anúncios indesejados? Fazemos a remoção completa de malwares e otimização do sistema.", tipoBtn: "Orçamento" },
-              ];
-
-        // BANCO DE DADOS DA TABELA DE PREÇOS
-        const precosData = [
-            // SAMSUNG
-            { modelo: "Samsung A05s", qualidade: "Diamonds S/A", preco: "R$ 180,00" },
-            { modelo: "Samsung A05s", qualidade: "Original C/A", preco: "R$ 200,00" },
-            { modelo: "Samsung A03/A02s/A03s/A04e", qualidade: "Diamonds", preco: "R$ 180,00" },
-            { modelo: "Samsung A04e", qualidade: "Diamonds C/A", preco: "R$ 220,00" },
-            { modelo: "Samsung A15", qualidade: "Incell C/A", preco: "R$ 250,00" },
-            { modelo: "Samsung A15", qualidade: "Oled C/A", preco: "R$ 370,00" },
-            // XIAOMI
-            { modelo: "Redmi Note 11s", qualidade: "Incell C/A", preco: "R$ 150,00" },
-            { modelo: "Redmi Note 11S / Note 11 4G / Note 12S / Poco M4 Pro 4G", qualidade: "Incell C/A (Gold Pro)", preco: "R$ 250,00" },
-            { modelo: "Redmi Note 11S / Note 11 4G / Note 12S / Poco M4 Pro 4G", qualidade: "Oled", preco: "R$ 380,00" },
-            { modelo: "Redmi Note 9 ", qualidade: "Diamond", preco: "R$ 180,00" },
-            // MOTOROLA
-            { modelo: "Motorola Moto e7 / Moto e7 power", qualidade: "Diamonds S/A", preco: "R$ 180,00" },
-            { modelo: "Motorola Moto G7 / Moto G7 plus", qualidade: "Original S/A", preco: "R$ 180,00" },
+            { id: 1, nome: "Troca de Tela Premium", categoria: "Serviço", imagem: "https://i.pinimg.com/736x/aa/05/26/aa0526348f7688aa0bcf863c92e5ae7a.jpg", desc: "Instalação profissional com película de brinde para evitar futuros acidentes.", tipoBtn: "Orçamento" },
+            { id: 2, nome: "Reparo de Conector & Bateria", categoria: "Serviço", imagem: "https://i1-e.pinimg.com/736x/c1/8b/74/c18b744ff43661f3feaa77f8af121d33.jpg", desc: "Seu celular não carrega ou vicia rápido? Resolvemos na hora com técnicos no local.", tipoBtn: "Orçamento" },
+            { id: 3, nome: "Limpeza e Remoção de Vírus", categoria: "Serviço", imagem: "https://i1-e.pinimg.com/1200x/df/75/0c/df750c8eed55601d7bc40af9a43e8948.jpg", desc: "Seu aparelho está lento ou com anúncios indesejados? Fazemos a remoção completa de malwares e otimização do sistema.", tipoBtn: "Download" },
         ];
 
         const grid = document.getElementById('grid-arquivos');
@@ -392,19 +386,12 @@
             lista.forEach(item => {
                 let iconeBtn, textoBtn, linkBtn, targetAttr, onclickAttr;
 
-                 // Lógica de roteamento dos botões (Sem abrir nova aba para links internos)
-                if (item.tipoBtn === "Fazer Orçamento" || item.nome.toLowerCase().includes("troca de tela")) {
+                // Lógica de roteamento dos botões
+                if (item.tipoBtn === "Orçamento") {
                     iconeBtn = "fa-brands fa-whatsapp";
                     textoBtn = "Fazer Orçamento";
                     linkBtn = linkWhatsapp + encodeURIComponent(item.nome);
-                    targetAttr = `target="_blank"`; // Apenas o zap abre em nova aba
-                    onclickAttr = "";
-                    
-                } else if (item.tipoBtn === "Orçamento") {
-                    iconeBtn = "fa-brands fa-whatsapp";
-                    textoBtn = "Fazer Orçamento";
-                    linkBtn = linkWhatsapp + encodeURIComponent(item.nome);
-                    targetAttr = `target="_blank"`; // Apenas o zap abre em nova aba
+                    targetAttr = `target="_blank"`;
                     onclickAttr = "";
                 } else {
                     iconeBtn = "fa-solid fa-download";
@@ -414,11 +401,16 @@
                     onclickAttr = "";
                 }
 
+                // Fallback para imagem caso não exista no banco de dados
+                const imgSrc = item.imagem ? item.imagem : 'placeholder.jpg';
+
                 const card = `
                     <div class="card">
                         <div>
                             <span class="card-tag">${item.categoria}</span>
                             <h3>${item.nome}</h3>
+                            <!-- IMAGEM ADICIONADA AQUI ABAIXO DO SERVIÇO -->
+                            <img src="${imgSrc}" alt="${item.nome}" class="card-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23222%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23444%22 font-size=%2214%22 font-family=%22sans-serif%22%3EErro Img%3C/text%3E%3C/svg%3E'">
                             <p>${item.desc}</p>
                         </div>
                         <a href="${linkBtn}" class="btn-card" ${targetAttr} ${onclickAttr}>
@@ -432,30 +424,20 @@
 
         // LÓGICA DE NAVEGAÇÃO SPA (Single Page Application)
         function abrirTabelaPrecos() {
-            // Esconde os elementos principais
             document.getElementById('inicio').style.display = 'none';
             document.getElementById('arquivos').style.display = 'none';
             document.getElementById('servicos').style.display = 'none';
-            
-            // Mostra a seção de preços
             document.getElementById('secao-precos').style.display = 'block';
-            
-            // Limpa o input de busca da tabela e renderiza ela inteira
             document.getElementById('search-precos').value = "";
             renderizarTabelaDePrecos();
-            
-            window.scrollTo(0, 0); // Joga a tela para cima
+            window.scrollTo(0, 0);
         }
 
         function voltarParaHome() {
-            // Esconde a seção de preços
             document.getElementById('secao-precos').style.display = 'none';
-            
-            // Restaura os elementos principais
             document.getElementById('inicio').style.display = 'flex';
             document.getElementById('arquivos').style.display = 'flex';
             document.getElementById('servicos').style.display = 'block';
-            
             window.scrollTo(0, 0);
         }
 
@@ -463,23 +445,19 @@
             voltarParaHome();
             document.getElementById('search-input').focus();
         }
-// NOVA FUNÇÃO DE NAVEGAÇÃO DO MENU
+
         function navegarPara(secaoId) {
-            // 1. Esconde a seção de preços (caso o usuário esteja lá dentro)
             document.getElementById('secao-precos').style.display = 'none';
-            
-            // 2. Garante que as seções principais da página estejam visíveis
             document.getElementById('inicio').style.display = 'flex';
             document.getElementById('arquivos').style.display = 'flex';
             document.getElementById('servicos').style.display = 'block';
             
-            // 3. Faz a rolagem suave até a parte exata do site que foi clicada
             setTimeout(() => {
                 const secao = document.getElementById(secaoId);
                 if(secao) {
                     secao.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            }, 50); // Um pequeno atraso de 50ms apenas para garantir que a tela renderizou antes de rolar
+            }, 50);
         }
 
         // RENDERIZA A TABELA DE PREÇOS
@@ -500,7 +478,7 @@
                     <td style="padding: 18px 20px;">
                         <a href="https://wa.me/5586999461236?text=Olá!%20Quero%20agendar%20a%20troca%20da%20tela%20do%20${encodeURIComponent(item.modelo)}" target="_blank"
                            style="color: var(--accent-color); border: 1px solid var(--accent-color); padding: 8px 15px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; display: inline-block;">
-                           AGENDAR
+                            AGENDAR
                         </a>
                     </td>
                 </tr>
