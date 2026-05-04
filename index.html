@@ -392,13 +392,14 @@
             lista.forEach(item => {
                 let iconeBtn, textoBtn, linkBtn, targetAttr, onclickAttr;
 
-                // Lógica de roteamento dos botões (Sem abrir nova aba para links internos)
-                if (item.tipoBtn === "Ver Preços" || item.nome.toLowerCase().includes("troca de tela")) {
-                    iconeBtn = "fa-solid fa-list";
-                    textoBtn = "Ver Preços";
-                    linkBtn = "javascript:void(0)";
-                    targetAttr = "";
-                    onclickAttr = `onclick="abrirTabelaPrecos()"`;
+                 // Lógica de roteamento dos botões (Sem abrir nova aba para links internos)
+                if (item.tipoBtn === "Fazer Orçamento" || item.nome.toLowerCase().includes("troca de tela")) {
+                    iconeBtn = "fa-brands fa-whatsapp";
+                    textoBtn = "Fazer Orçamento";
+                    linkBtn = linkWhatsapp + encodeURIComponent(item.nome);
+                    targetAttr = `target="_blank"`; // Apenas o zap abre em nova aba
+                    onclickAttr = "";
+                    
                 } else if (item.tipoBtn === "Orçamento") {
                     iconeBtn = "fa-brands fa-whatsapp";
                     textoBtn = "Fazer Orçamento";
